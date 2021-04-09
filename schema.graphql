@@ -1,0 +1,13 @@
+type Volume @entity {
+  id: ID!
+  poolId: Int
+  volume: BigInt
+  timestamp: BigInt
+}
+
+type Liquidity @entity {
+  id: ID!
+  poolId: Int
+  liquidity: BigInt
+  timestamp: BigInt
+}
