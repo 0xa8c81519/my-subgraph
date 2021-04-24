@@ -61,4 +61,4 @@ dataSources:
           handler: handleRemoveLiquidityOne
         - event: RemoveLiquidityImbalance(address,uint256[],uint256[],uint256,uint256)
           handler: handleRemoveLiquidityImbalance
-      file: BStablePool01/BStablePool01.wasm
+      file: BStablePool02/BStablePool02.wasm
