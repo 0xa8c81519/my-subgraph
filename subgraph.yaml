@@ -61,4 +61,4 @@ dataSources:
           handler: handleRemoveLiquidityOne
         - event: RemoveLiquidityImbalance(address,uint256[],uint256[],uint256,uint256)
           handler: handleRemoveLiquidityImbalance
-      file: ./src/mapping01.ts
+      file: ./src/mapping02.ts
