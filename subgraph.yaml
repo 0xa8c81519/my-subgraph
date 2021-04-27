@@ -8,7 +8,7 @@ dataSources:
     name: BStablePool01
     network: bsc 
     source:
-      address: '0x27f545300f7b93c1c0184979762622db043b0805'
+      address: '0x9c00954a8a58f5dda8c011d6233093763f13c8da'
       abi: BStablePool
       startBlock: 1903925 
     mapping:
@@ -37,7 +37,7 @@ dataSources:
     name: BStablePool02
     network: bsc 
     source:
-      address: '0x9c00954a8a58f5dda8c011d6233093763f13c8da'
+      address: '0x27f545300f7b93c1c0184979762622db043b0805'
       abi: BStablePool 
       startBlock: 1903925 
     mapping:
