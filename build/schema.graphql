@@ -11,3 +11,10 @@ type Liquidity @entity {
   liquidity: BigInt
   timestamp: BigInt
 }
+
+type BSTTransfer @entity {
+  id: ID!
+  sender: Bytes
+  recipient: Bytes
+  amount: BigInt
+}
