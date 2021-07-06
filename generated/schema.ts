@@ -160,7 +160,7 @@ export class Liquidity extends Entity {
   }
 }
 
-export class BSTTransfer extends Entity {
+export class BSTTransferLog extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
@@ -168,17 +168,99 @@ export class BSTTransfer extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id !== null, "Cannot save BSTTransfer entity without an ID");
+    assert(id !== null, "Cannot save BSTTransferLog entity without an ID");
     assert(
       id.kind == ValueKind.STRING,
-      "Cannot save BSTTransfer entity with non-string ID. " +
+      "Cannot save BSTTransferLog entity with non-string ID. " +
         'Considering using .toHex() to convert the "id" to a string.'
     );
-    store.set("BSTTransfer", id.toString(), this);
+    store.set("BSTTransferLog", id.toString(), this);
   }
 
-  static load(id: string): BSTTransfer | null {
-    return store.get("BSTTransfer", id) as BSTTransfer | null;
+  static load(id: string): BSTTransferLog | null {
+    return store.get("BSTTransferLog", id) as BSTTransferLog | null;
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get sender(): Bytes | null {
+    let value = this.get("sender");
+    if (value === null || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBytes();
+    }
+  }
+
+  set sender(value: Bytes | null) {
+    if (value === null) {
+      this.unset("sender");
+    } else {
+      this.set("sender", Value.fromBytes(value as Bytes));
+    }
+  }
+
+  get recipient(): Bytes | null {
+    let value = this.get("recipient");
+    if (value === null || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBytes();
+    }
+  }
+
+  set recipient(value: Bytes | null) {
+    if (value === null) {
+      this.unset("recipient");
+    } else {
+      this.set("recipient", Value.fromBytes(value as Bytes));
+    }
+  }
+
+  get amount(): BigInt | null {
+    let value = this.get("amount");
+    if (value === null || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigInt();
+    }
+  }
+
+  set amount(value: BigInt | null) {
+    if (value === null) {
+      this.unset("amount");
+    } else {
+      this.set("amount", Value.fromBigInt(value as BigInt));
+    }
+  }
+}
+
+export class XXMoonTransferLog extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id !== null, "Cannot save XXMoonTransferLog entity without an ID");
+    assert(
+      id.kind == ValueKind.STRING,
+      "Cannot save XXMoonTransferLog entity with non-string ID. " +
+        'Considering using .toHex() to convert the "id" to a string.'
+    );
+    store.set("XXMoonTransferLog", id.toString(), this);
+  }
+
+  static load(id: string): XXMoonTransferLog | null {
+    return store.get("XXMoonTransferLog", id) as XXMoonTransferLog | null;
   }
 
   get id(): string {

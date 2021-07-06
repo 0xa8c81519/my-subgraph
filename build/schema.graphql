@@ -12,7 +12,14 @@ type Liquidity @entity {
   timestamp: BigInt
 }
 
-type BSTTransfer @entity {
+type BSTTransferLog @entity {
+  id: ID!
+  sender: Bytes
+  recipient: Bytes
+  amount: BigInt
+}
+
+type XXMoonTransferLog @entity {
   id: ID!
   sender: Bytes
   recipient: Bytes

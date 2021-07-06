@@ -103,7 +103,7 @@ dataSources:
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
-        - BSTTransfer
+        - BSTTransferLog
       abis:
         - name: BSTToken
           file: ./abis/BSTToken.json
@@ -111,3 +111,23 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleBSTTransfer
       file: ./src/bstTransfer.ts
+  - kind: ethereum/contract
+    name: XXMOONTransferLog 
+    network: bsc
+    source:
+      address: "0x1a624b06062a3e5d4761f75a54e3988efef82b1d"
+      abi: XXMOONToken 
+      startBlock: 8404830
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - XXMoonTransferLog
+      abis:
+        - name: XXMOONToken
+          file: ./abis/XXMOON.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/xxmoonTransfer.ts
